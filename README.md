@@ -1,24 +1,37 @@
-## Prerequisites
-- JDK 1.8 or later
-- Maven 3 or later
-- MySQL 5.6 or later
+kubectl create deplyment --image=nginx nginx-app
 
-## Technologies 
-- Spring MVC
-- Spring Security
-- Spring Data JPA
-- Maven
-- JSP
-- MySQL
-## Database
-Here,we used Mysql DB 
-MSQL DB Installation Steps for Linux ubuntu 14.04:
-- $ sudo apt-get update
-- $ sudo apt-get install mysql-server
+kubectl apply -f helloworld-pod.yml
 
-Then look for the file :
-- /src/main/resources/accountsdb
-- accountsdb.sql file is a mysql dump file.we have to import this dump to mysql db server
-- > mysql -u <user_name> -p accounts < accountsdb.sql
+kubectl get pods
+
+kubectl get all
+
+kubectl get pods -o json
+
+kubectl describe nginx
+
+kubectl exec -it nginx -- /bin/bash
+
+minikube dashboard
+
+kubectl exec -it webserver /bin/bash
+
+kubectl logs nginx
 
 
+kubectl delete deployment all
+
+
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webserver
+spec:
+  containers:
+  - name: webserver
+    image: nginx:latest
+    ports:
+    - containerPort: 80
