@@ -1,4 +1,6 @@
-kubectl create deplyment --image=nginx nginx-app
+PODS 
+
+kubectl create deployment --image=nginx nginx-app
 
 kubectl apply -f helloworld-pod.yml
 
@@ -35,3 +37,27 @@ spec:
     image: nginx:latest
     ports:
     - containerPort: 80
+
+
+
+-------------------------------------------
+DEPLOYMENT: 
+
+
+kubectl create deployment nginx-dep --image=nginx
+
+
+kubectl describe pod nginx-dep-7ccf5fddd7-jwsk8
+
+
+Kubectl describe deployment nginx-dep 
+
+
+#scale 
+kubectl scale deployment nginx-dep --replicas=7
+
+kubectl get pods -o wide 
+
+minikube ssh
+	
+curl 10.244.0.27 >> IP 
