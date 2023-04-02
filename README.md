@@ -164,3 +164,14 @@ $ minikube service apache-service
 
 $ kubectl expose deployment nginx-dep
 
+
+
+---------------------------------------------
+
+# Two containers in POD 
+kubectl apply -f .\MultiContPod.yaml
+kubectl  logs two-c-pod  -c ubuntu
+
+kubectl exec -it two-c-pod -c nginx -- /bin/bash
+
+kubectl get pods two-c-pod -o jsonpath='{.spec.containers[*].name}'
